@@ -7,7 +7,7 @@ Internal recruitment operations relied on 4–5 separate recruiter-owned tracker
 A Google Apps Script automation layer that syncs all individual recruiter trackers into a single Master Tracker in real time, with automated TAT breach alerting.
 
 ## How It Works
-- **Trigger setup:** Both installable `onEdit` triggers (for instant sync on every edit) and time-based triggers (for scheduled checks) were configured across each recruiter's individual sheet.
+- **Trigger setup:** An installable `onEdit` trigger runs inside each recruiter's individual sheet for instant sync. A separate hourly time-based trigger runs on the Master sheet as a fallback.
 - **Data sync:** Candidate records and daily call logs from each recruiter sheet are automatically pulled into the Master Tracker whenever an edit occurs — no manual consolidation needed.
 - **Active Requirements push:** Open role requirements added to the Master are automatically pushed down to the relevant recruiter's individual sheet, filtered by assignment, so recruiters always see their current live roles without being manually briefed.
 - **Alerting:** Automated email notifications are triggered whenever a candidate or requirement is updated, and separately whenever a role crosses its defined TAT deadline — so breaches are flagged the moment they happen rather than discovered days later.
@@ -18,6 +18,11 @@ A Google Apps Script automation layer that syncs all individual recruiter tracke
 
 ## Tech Used
 Google Apps Script, Google Sheets (installable triggers, onEdit, time-based triggers), Gmail API for automated notifications.
+
+## Repository Structure
+- `scripts/sync-individual-to-master.gs` — per-recruiter instant sync
+- `scripts/master-hourly-safety-sync.gs` — hourly fallback sync
+- `scripts/README.md` — script-level documentation
 
 ## Note
 This repository documents the system design and logic. The original script was built directly within the organization's live Google Sheets environment; a sanitized, standalone version of the code is being rebuilt here for portfolio purposes.
