@@ -1,7 +1,7 @@
 # Recruitment Ops Automation
 
 ## Business Problem
-Internal recruitment operations relied on 4–5 separate recruiter-owned tracker sheets, each updated independently. Managers had no consolidated view — checking overall pipeline status meant opening each recruiter's sheet individually. TAT (turnaround time) breaches and drops in individual performance frequently went unnoticed until well after the fact, since there was no alerting mechanism and no single source of truth.
+Internal recruitment operations relied on 4–5 separate recruiter-owned tracker sheets, each updated independently. Managers had no consolidated view checking overall pipeline status meant opening each recruiter's sheet individually. TAT (turnaround time) breaches and drops in individual performance frequently went unnoticed until well after the fact, since there was no alerting mechanism and no single source of truth.
 
 ## What I Built
 A Google Apps Script automation layer that syncs all individual recruiter trackers into a single Master Tracker in real time, with automated TAT breach alerting.
@@ -10,7 +10,7 @@ A Google Apps Script automation layer that syncs all individual recruiter tracke
 - **Trigger setup:** An installable `onEdit` trigger runs inside each recruiter's individual sheet for instant sync. A separate hourly time-based trigger runs on the Master sheet as a fallback.
 - **Data sync:** Candidate records and daily call logs from each recruiter sheet are automatically pulled into the Master Tracker whenever an edit occurs — no manual consolidation needed.
 - **Active Requirements push:** Open role requirements added to the Master are automatically pushed down to the relevant recruiter's individual sheet, filtered by assignment, so recruiters always see their current live roles without being manually briefed.
-- **Alerting:** Automated email notifications are triggered whenever a candidate or requirement is updated, and separately whenever a role crosses its defined TAT deadline — so breaches are flagged the moment they happen rather than discovered days later.
+- **Alerting:** Automated email notifications are triggered whenever a candidate or requirement is updated, and separately whenever a role crosses its defined TAT deadline so breaches are flagged the moment they happen rather than discovered days later.
 
 ## Impact
 - **Before:** Managers manually opened each of 4–5 individual recruiter sheets to check status; TAT breaches and performance drops were often caught late or missed entirely.
