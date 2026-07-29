@@ -8,7 +8,7 @@ A Google Apps Script automation layer that syncs all individual recruiter tracke
 
 ## How It Works
 - **Trigger setup:** An installable `onEdit` trigger runs inside each recruiter's individual sheet for instant sync. A separate hourly time-based trigger runs on the Master sheet as a fallback.
-- **Data sync:** Candidate records and daily call logs from each recruiter sheet are automatically pulled into the Master Tracker whenever an edit occurs — no manual consolidation needed.
+- **Data sync:** Candidate records and daily call logs from each recruiter sheet are automatically pulled into the Master Tracker whenever an edit occurs no manual consolidation needed.
 - **Active Requirements push:** Open role requirements added to the Master are automatically pushed down to the relevant recruiter's individual sheet, filtered by assignment, so recruiters always see their current live roles without being manually briefed.
 - **Alerting:** Automated email notifications are triggered whenever a candidate or requirement is updated, and separately whenever a role crosses its defined TAT deadline so breaches are flagged the moment they happen rather than discovered days later.
 
